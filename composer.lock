@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "31ce27e44cd66b0e214c77ed58be42ff",
+    "content-hash": "2cc606b6fe79d89e4161828dd3ed29e1",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -124,28 +124,29 @@
         },
         {
             "name": "colopl/laravel-tidb",
-            "version": "v1.2.0",
+            "version": "dev-main",
             "source": {
                 "type": "git",
-                "url": "https://github.com/colopl/laravel-tidb.git",
-                "reference": "f43737be46cec14f3abbb48b00d522266fe99c44"
+                "url": "https://github.com/ti-click/laravel-tidb.git",
+                "reference": "41ec0c161f2b19286ab1027fc5a6e2ee8a4c4ed1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/colopl/laravel-tidb/zipball/f43737be46cec14f3abbb48b00d522266fe99c44",
-                "reference": "f43737be46cec14f3abbb48b00d522266fe99c44",
+                "url": "https://api.github.com/repos/ti-click/laravel-tidb/zipball/41ec0c161f2b19286ab1027fc5a6e2ee8a4c4ed1",
+                "reference": "41ec0c161f2b19286ab1027fc5a6e2ee8a4c4ed1",
                 "shasum": ""
             },
             "require": {
                 "ext-json": "*",
                 "ext-pdo": "*",
-                "laravel/framework": "~6.0|~7.0|~8.0",
+                "laravel/framework": "~8.0",
                 "php": ">=7.4"
             },
             "require-dev": {
                 "orchestra/testbench": "~3.5|~4.0|~5.0",
                 "phpunit/phpunit": "~6.0|~8.0"
             },
+            "default-branch": true,
             "type": "library",
             "extra": {
                 "laravel": {
@@ -159,7 +160,11 @@
                     "Colopl\\TiDB\\": "src/Colopl/TiDB"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "autoload-dev": {
+                "psr-4": {
+                    "Colopl\\TiDB\\Tests\\": "tests/Colopl/TiDB"
+                }
+            },
             "license": [
                 "Apache-2.0"
             ],
@@ -171,10 +176,9 @@
             ],
             "description": "Laravel database driver for PingCAP TiDB",
             "support": {
-                "issues": "https://github.com/colopl/laravel-tidb/issues",
-                "source": "https://github.com/colopl/laravel-tidb/tree/v1.2.0"
+                "source": "https://github.com/ti-click/laravel-tidb/tree/main"
             },
-            "time": "2021-05-27T07:53:44+00:00"
+            "time": "2022-01-08T03:36:49+00:00"
         },
         {
             "name": "dflydev/dot-access-data",
@@ -8221,7 +8225,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "colopl/laravel-tidb": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
