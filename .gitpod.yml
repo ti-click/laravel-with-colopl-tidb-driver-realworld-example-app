@@ -1,0 +1,23 @@
+# Commands to start on workspace startup
+tasks:
+  - name: setup & build api
+    before: composer install && composer update colopl/laravel-tidb 
+    init: cp .env.example .env && php artisan key:generate && echo yes | php artisan jwt:secret
+    command: php artisan migrate && php artisan db:seed
+  - name: run api server
+    command: php artisan serve --host 0.0.0.0
+
+# Ports to expose on workspace startup
+ports:
+  - port: 4000
+    onOpen: ignore
+    name: TiDB
+    description: TiDB
+  - port: 8000
+    onOpen: open-browser
+    name: API
+    description: API
+  - port: 8080
+    onOpen: open-browser
+    name: WebFront
+    description: WebFront
