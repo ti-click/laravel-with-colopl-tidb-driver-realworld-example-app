@@ -13,7 +13,7 @@ tasks:
   - name: tiup playground (tidb unistore)
     command: |
       mkdir -p $USER/.tiup/data/
-      $USER/.tiup/components/tidb/v6.1.1/tidb-server -P 4000 --store=unistore --host=127.0.0.1 --status=10080 --log-file=$USER/.tiup/data/tidb.log
+      $HOME/.tiup/components/tidb/v6.1.1/tidb-server -P 4000 --store=unistore --host=127.0.0.1 --status=10080 --log-file=$HOME/.tiup/data/tidb.log
 
   # wait tidb start
   - name: wait for tidb started
@@ -30,6 +30,8 @@ tasks:
       php artisan key:generate
       echo yes | php artisan jwt:secret
     command: |
+      php artisan migrate
+      php artisan db:seed
       php artisan serve --host 0.0.0.0
 
   # web frontend
