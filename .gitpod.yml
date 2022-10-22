@@ -1,11 +1,35 @@
 # Commands to start on workspace startup
+
 tasks:
-  - name: setup & build api
-    before: composer install && composer update colopl/laravel-tidb 
-    init: cp .env.example .env && php artisan key:generate && echo yes | php artisan jwt:secret
-    command: php artisan migrate && php artisan db:seed
-  - name: run api server
-    command: php artisan serve --host 0.0.0.0
+
+  # start tidb on local env
+  - name: tiup playground
+    command: |
+      $HOME/.tiup/bin/tiup playground
+
+  # wait tidb start
+  - name: wait for tidb started
+    command: gp ports await 10080 && gp sync-done tidbstarted
+
+  # backend server (API server)
+  - name: backend
+    before: |
+      gp sync-await tidbstarted
+      composer instal
+      composer update colopl/laravel-tidb
+    init: |
+      cp .env.example .env
+      php artisan key:generate
+      echo yes | php artisan jwt:secret
+    command: |
+      php artisan serve --host 0.0.0.0
+
+  # web frontend
+  - name: frontend
+    before: |
+      gp ports await 8000
+    command: |
+      echo todo : run frontend server
 
 # Ports to expose on workspace startup
 ports:
@@ -15,9 +39,9 @@ ports:
     description: TiDB
   - port: 8000
     onOpen: open-browser
-    name: API
-    description: API
+    name: backend
+    description: backend
   - port: 8080
     onOpen: open-browser
-    name: WebFront
-    description: WebFront
+    name: frontend
+    description: frontend
