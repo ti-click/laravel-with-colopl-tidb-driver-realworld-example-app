@@ -11,3 +11,4 @@ RUN sudo apt-get update && sudo apt-get install -y gnupg software-properties-com
 
 # install tiup
 RUN curl --proto '=https' --tlsv1.2 -sSf https://tiup-mirrors.pingcap.com/install.sh | sh
+RUN /home/gitpod/.tiup/bin/tiup install tidb:v6.1.1
