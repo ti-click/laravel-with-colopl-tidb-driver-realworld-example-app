@@ -5,9 +5,10 @@ image:
 tasks:
 
   # start tidb on local env
-  - name: tiup playground
+  - name: tiup playground (tidb unistore)
     command: |
-      $HOME/.tiup/bin/tiup playground
+      mkdir -p $USER/.tiup/data/
+      $USER/.tiup/components/tidb/v6.1.1/tidb-server -P 4000 --store=unistore --host=127.0.0.1 --status=10080 --log-file=$USER/.tiup/data/tidb.log
 
   # wait tidb start
   - name: wait for tidb started
