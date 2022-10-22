@@ -44,7 +44,8 @@ tasks:
       sed -i -e 's/https:.*\/api/'$(gp url 8000)'\/api/' common/config.js
       sed -i -e 's/Token /Bearer /' src/common/api.service.js
     command: |
-      echo todo : run frontend server
+      echo run frontend server
+      echo Please test this url: $(gp url 8080)
       yarn serve
 
 # Ports to expose on workspace startup
@@ -54,7 +55,7 @@ ports:
     name: TiDB
     description: TiDB
   - port: 8000
-    onOpen: open-browser
+    onOpen: ignore
     name: backend
     description: backend
   - port: 8080
