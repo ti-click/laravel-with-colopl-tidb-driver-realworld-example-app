@@ -41,7 +41,7 @@ tasks:
       cd ../frontend
       npm install -g yarn
       yarn install
-      sed -i -e 's/https:.*\/api/'$(gp url 8000)'\/api/' common/config.js
+      sed -i -e s/conduit.productionready.io/$(gp url 8000 | sed -e 's/https:\/\///')/
       sed -i -e 's/Token /Bearer /' src/common/api.service.js
     command: |
       echo run frontend server
