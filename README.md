@@ -1,4 +1,4 @@
-## Real World base Laravel For TiDB or TiDB Cloud
+## Real World base Laravel For TiDB and TiDB Cloud
 
 Thanks [alexeymezenin/laravel-realworld-example-app](https://github.com/alexeymezenin/laravel-realworld-example-app) project offer so great example.
 
@@ -9,7 +9,7 @@ This Project is created for Ti-Click project join PingCAP Hackathon 2022.
 You can create the TiDB Cluster on [TiDB Cloud](https://tidbcloud.com/) which offer free TiDB Cluster.
 
 2. Access Gitpod
-Access [Real World base Level link](https://github.com/ti-click/laravel-with-colopl-tidb-driver-realworld-example-app) and open the Gitpod online IDE.
+Access [Real World base Level link](https://gitpod.io/#/https://github.com/ti-click/laravel-with-colopl-tidb-driver-realworld-example-app) and open the Gitpod online IDE.
 
 Or you can install [Gitpod Chrome extension](https://chrome.google.com/webstore/detail/gitpod-always-ready-to-co/dodmmooeoklaejobgleioelladacbeki)  in advance, so you can just click the `Gitpod` button on the project's home page.
 
